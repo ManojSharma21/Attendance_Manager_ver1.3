@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+        body{
+            background-color: #83b7ee;
+            margin: 0;
+            padding: 0;
+        }
+        h1,input[type=submit]{
+            font-style:"Times New Roman";
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        input[type=text] {
+            width: 40%;
+            border: 1px solid green;
+            border-radius: 4px;
+            padding: 12px 20px;
+            margin: 0px 0px;
+            background-color: white;
+            color: black;
+            transition: width 0.4s ease-in-out;
+        }
+
+        input[type=text]:focus {
+            background-color: white;
+            color: black;
+            width: 45%;
+
+         }
+
+        input[type=submit] {
+          background-color: white;
+          border-radius: 5px;
+          border: 1px solid green;
+          width:10%;
+          font-weight:bold;
+          font-size:20px;
+
+          }
+        input[type=submit]:focus {
+            background-color: #B0F5A0;
+            color: white;
+            border-radius: 4px;
+
+         }
+    </style>
+</head>
+<body>
+<center><h1>Company Registration Form</h1></center><hr>
+{% if submitted %}
+<center><b>Your Registration was Succesfull !</b></center>
+
+{% else %}
+<center>
+    <form action="" method="POST" enctype="multipart/form-data"  >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</center>
+{% endif %}
+
+</body>
+</html>
